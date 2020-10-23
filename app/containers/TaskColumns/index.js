@@ -5,15 +5,15 @@
  */
 
 import React, { memo, useEffect } from 'react';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
-
 import { useInjectSaga } from 'utils/injectSaga';
 import { useInjectReducer } from 'utils/injectReducer';
 import { DragDropContext } from 'react-beautiful-dnd';
-import { toast } from 'react-toastify';
 import {
   makeSelectTasks,
   makeSelectHasTaskAdded,
@@ -22,14 +22,11 @@ import {
   makeSelectError,
   makeSelectErrorMsg,
 } from './selectors';
-
 import reducer from './reducer';
 import saga from './saga';
 import taskSections from './mocksData/taskColumnsData';
 import TaskBoard from '../TaskBoard/index';
 import { taskDragAndDropRequest, fetchTasksRequest } from './actions';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 export function TaskColumns(props) {
   useInjectReducer({ key: 'taskColumns', reducer });
@@ -45,11 +42,8 @@ export function TaskColumns(props) {
     taskDragAndDrop,
   } = props;
 
-  // console.log("TASKS ", hasTaskAdded, hasTaskDeleted, hasTaskUpdated, toast)
-
   useEffect(() => {
     fetchTasks();
-
     if (hasTaskAdded) {
       toast.success('Task added successfully', {
         position: toast.POSITION.TOP_CENTER,
@@ -154,6 +148,7 @@ export function TaskColumns(props) {
 
   return (
     <div className="task-list-container">
+      <ToastContainer />
       <DragDropContext onDragEnd={handleOnDragEnd}>
         {taskSections &&
           taskSections.map(taskSection => {

@@ -79,6 +79,7 @@
     "history": "4.9.0",
     "hoist-non-react-statics": "3.3.0",
     "immer": "3.0.0",
+    "import-glob-loader": "^1.1.0",
     "intl": "1.2.5",
     "invariant": "2.2.4",
     "ip": "1.1.5",
@@ -98,6 +99,8 @@
     "redux-saga": "1.0.2",
     "reselect": "4.0.0",
     "sanitize.css": "8.0.0",
+    "sass-loader": "^10.0.4",
+    "style-loader": "^2.0.0",
     "styled-components": "4.2.0"
   },
   "devDependencies": {
@@ -156,7 +159,6 @@
     "react-testing-library": "6.1.2",
     "rimraf": "2.6.3",
     "shelljs": "^0.8.3",
-    "style-loader": "0.23.1",
     "stylelint": "10.0.1",
     "stylelint-config-recommended": "2.2.0",
     "stylelint-config-styled-components": "0.1.1",

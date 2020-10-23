@@ -11,7 +11,6 @@ import React from 'react';
 import Header from '../Header/index';
 import TaskColumns from '../TaskColumns/index';
 import GlobalStyle from '../../global-styles';
-
 export default function App() {
   return (
     <div>

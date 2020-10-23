@@ -12,7 +12,9 @@ import { debounce } from 'lodash';
 import { createStructuredSelector } from 'reselect';
 
 import { useInjectSaga } from 'utils/injectSaga';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 import saga from './saga';
 
 import users from '../TaskColumns/mocksData/users';
@@ -25,11 +27,9 @@ import {
 import {
   makeSelectUserAssignedTasks,
   makeSelectuserAssignedTasksFilterRequest,
-  // makeSelectSearchResults,
-  // makeSelectHasSearchResultFetched,
+  makeSelectSearchResults,
+  makeSelectHasSearchResultFetched,
 } from '../TaskColumns/selectors';
-
-import 'react-toastify/dist/ReactToastify.css';
 
 export function Header(props) {
   useInjectSaga({ key: 'header', saga });
@@ -40,20 +40,26 @@ export function Header(props) {
     fetchSearchResults,
     showAllTaskFilter,
     fetchUserAssignedTasks,
+    searchResults,
+    hasSearchResultFetched,
   } = props;
 
   useEffect(() => {
-    if (userAssignedTasksFilterRequest && userAssignedTasks.length < 1) {
-      displayNotification();
+    if (
+      (userAssignedTasksFilterRequest && userAssignedTasks.length < 1) ||
+      (hasSearchResultFetched && searchResults.length < 1)
+    ) {
+      toast.info('No records found.', {
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 2000,
+      });
     }
-  }, [userAssignedTasksFilterRequest, userAssignedTasks]);
-
-  const displayNotification = () => {
-    toast.info('No records found.', {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000,
-    });
-  };
+  }, [
+    userAssignedTasksFilterRequest,
+    userAssignedTasks,
+    searchResults,
+    hasSearchResultFetched,
+  ]);
 
   const handleSearchQuery = event => {
     const searchInput = event.target.value;
@@ -88,6 +94,7 @@ export function Header(props) {
 
   return (
     <header className="header">
+      <ToastContainer />
       <h1 className="heading">Kanban Board</h1>
       <div className="search-and-filter-wrapper">
         <div className="search-container">
@@ -127,13 +134,15 @@ Header.propTypes = {
   fetchUserAssignedTasks: PropTypes.func,
   userAssignedTasks: PropTypes.array,
   userAssignedTasksFilterRequest: PropTypes.bool,
+  searchResults: PropTypes.array,
+  hasSearchResultFetched: PropTypes.bool,
 };
 
 const mapStateToProps = createStructuredSelector({
   userAssignedTasks: makeSelectUserAssignedTasks(),
   userAssignedTasksFilterRequest: makeSelectuserAssignedTasksFilterRequest(),
-  // searchResults: makeSelectSearchResults(),
-  // hasSearchResultFetched: makeSelectHasSearchResultFetched(),
+  searchResults: makeSelectSearchResults(),
+  hasSearchResultFetched: makeSelectHasSearchResultFetched(),
 });
 
 function mapDispatchToProps(dispatch) {

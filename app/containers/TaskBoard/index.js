@@ -14,7 +14,6 @@ import { Droppable, Draggable } from 'react-beautiful-dnd';
 import { useInjectReducer } from 'utils/injectReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus, faTrash } from '@fortawesome/free-solid-svg-icons';
-import { toast } from 'react-toastify';
 import makeSelectTaskBoard from './selectors';
 import reducer from './reducer';
 
@@ -135,10 +134,6 @@ export function TaskBoard(props) {
   };
 
   const toggleModal = () => {
-    toast.success('Task added successfully', {
-      position: toast.POSITION.TOP_CENTER,
-      autoClose: 2000,
-    });
     setModalVisibility(!modalVisibility);
     setButtonName('Add Task');
     setTaskId(undefined);

@@ -8,12 +8,12 @@
     },
     {
       "task": "Walk more daily",
-      "user": "Ronny Doe",
+      "user": "Jane Doe",
       "status": "todo",
       "id": "o1NhOF7"
     },
     {
-      "task": "Learning more about hooks",
+      "task": "Learning more about hooks.",
       "user": "Kane Doe",
       "status": "doing",
       "id": "XXx6vTj"
@@ -43,7 +43,7 @@
       "id": "LPJNqHk"
     },
     {
-      "task": "new task added",
+      "task": "new task added.",
       "user": "Jane Doe",
       "status": "todo",
       "id": "RMvHQzO"
@@ -61,22 +61,16 @@
       "id": "n7g55Jc"
     },
     {
-      "task": "task again again",
-      "user": "Kane Doe",
-      "status": "doing",
-      "id": "vNXBxh1"
-    },
-    {
       "task": "Added a new task",
-      "user": "Ronny Doe",
+      "user": "Jane Doe",
       "status": "completed",
       "id": "pnH8JAl"
     },
     {
-      "task": "alert added",
-      "user": "Ronny Doe",
-      "status": "todo",
-      "id": "cryqOs9"
+      "task": "Testing again new",
+      "user": "John Doe",
+      "status": "completed",
+      "id": "xgpIZqu"
     }
   ]
 }
