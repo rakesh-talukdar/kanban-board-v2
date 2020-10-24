@@ -45,18 +45,22 @@ const GlobalStyle = createGlobalStyle`
     justify-content: space-around;
     background-color: #157570;
     padding: 0 12%;
+    padding-top: 0.5em;
+    align-items: flex-start;
   }
   
   .heading {
     text-transform: uppercase;
     font-weight: 600;
     color: rgb(236, 218, 218);
+    margin-right: 2em;
   }
   
   .search-and-filter-wrapper {
     flex-basis: 35%;
     display: flex;
     align-items: center;
+    margin-right: 10em;
   }
   
   
@@ -92,10 +96,10 @@ const GlobalStyle = createGlobalStyle`
     padding: 0em;
   }
   .filter-select {
-    padding: 0.5em 0.5em;
+    padding: 0.3em 0.5em;
     border: none;
     outline: none;
-    font-size: 0.9em;
+    font-size: 1em;
     width: 100%;
     border-radius: 5px;
     background-color: #fff;
@@ -195,16 +199,15 @@ const GlobalStyle = createGlobalStyle`
   
   .add-task-card-btn {
     background-color:  rgb(31, 105, 128);
-    padding: 0.6em;
+    padding: 0.1em 0.6em;
     margin: 0.5em 26%;
-    font-size: 0.9em;
+    font-size: 1.1em;
     color: #fff;
     border-radius: 5px;
     cursor: pointer;
   }
   
   .add-task-card-btn:hover {
-    transform: scale(1.1);
     background-color: rgb(23, 76, 92);
   }
   .searchIcon {
@@ -337,33 +340,9 @@ const GlobalStyle = createGlobalStyle`
   @media (max-width: 1600px) {
     .header {
       padding: 0%;
-    }  
-  }
-  @media (max-width: 1400px) {
-    .header-wrapper {
-      flex-basis: 70%;
-      display: flex;
-      justify-content: space-between;
+      padding-top: 0.7em;    
     }
   }
-  
-  @media (max-width: 1300px) {
-    .header-wrapper {
-      flex-basis: 80%;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  
-  
-  @media (max-width: 1100px) {
-    .header-wrapper {
-      flex-basis: 80%;
-      display: flex;
-      justify-content: space-between;
-    }
-    
-  }  
 `;
 
 export default GlobalStyle;

@@ -10,13 +10,12 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { debounce } from 'lodash';
 import { createStructuredSelector } from 'reselect';
-
+import 'antd/dist/antd.css';
+import { Select } from 'antd';
 import { useInjectSaga } from 'utils/injectSaga';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 import saga from './saga';
-
 import users from '../TaskColumns/mocksData/users';
 import {
   fetchUserAssignedTasks,
@@ -43,6 +42,9 @@ export function Header(props) {
     searchResults,
     hasSearchResultFetched,
   } = props;
+
+  // Option element from Select ant D
+  const { Option } = Select;
 
   useEffect(() => {
     if (
@@ -80,16 +82,16 @@ export function Header(props) {
   }, 500);
 
   const handleUserChange = event => {
-    const selectedUser = event.target.value;
+    const selectedUser = event;
     return selectedUser === 'showAllTasks'
       ? showAllTaskFilter()
       : getUserAssignedTasks(selectedUser);
   };
 
   const userList = users.map(user => (
-    <option key={user.id} value={user.name}>
+    <Option key={user.id} value={user.name}>
       {user.name}
-    </option>
+    </Option>
   ));
 
   return (
@@ -108,20 +110,17 @@ export function Header(props) {
           </form>
         </div>
         <div className="filter-container">
-          <form className="filter-form">
-            <select
-              className="filter-select"
-              name="user-task-filter"
-              onChange={handleUserChange}
-              defaultValue="Filter tasks by username"
-            >
-              <option disabled defaultValue="Filter tasks by username">
-                Filter tasks by username
-              </option>
-              <option value="showAllTasks">Show all tasks</option>
-              {userList}
-            </select>
-          </form>
+          <Select
+            className="filter-select"
+            showSearch
+            style={{ width: 200 }}
+            placeholder="Filter tasks by user"
+            optionFilterProp="children"
+            onChange={handleUserChange}
+          >
+            <Option value="showAllTasks">Show all tasks</Option>
+            {userList}
+          </Select>
         </div>
       </div>
     </header>

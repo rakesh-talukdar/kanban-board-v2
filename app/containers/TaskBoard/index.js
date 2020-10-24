@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-// import { Button } from 'antd';
-// import 'antd/dist/antd.css';
+import { Button } from 'antd';
+import 'antd/dist/antd.css';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -170,14 +170,18 @@ export function TaskBoard(props) {
             </ul>
           )}
         </Droppable>
-        <button
+        {/* <button
           onClick={toggleModal}
           className="add-task-card-btn"
           type="button"
         >
           Add Task Card
           <FontAwesomeIcon icon={faPlus} className="searchIcon" />
-        </button>
+        </button> */}
+        <Button onClick={toggleModal} className="add-task-card-btn">
+          Add Task Card
+          <FontAwesomeIcon icon={faPlus} className="searchIcon" />
+        </Button>
       </div>
 
       {modalVisibility ? (
