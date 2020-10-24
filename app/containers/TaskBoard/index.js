@@ -10,6 +10,8 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
+// import { Button } from 'antd';
+// import 'antd/dist/antd.css';
 
 import { useInjectReducer } from 'utils/injectReducer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -79,7 +81,6 @@ export function TaskBoard(props) {
                 >
                   <div
                     onClick={() => toggleUpdateTaskModal(taskCardId)}
-                    // onKeyDown={toggleUpdateTaskModal(taskCardId)}
                     className="task-title"
                     role="presentation"
                   >

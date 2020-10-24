@@ -87,50 +87,24 @@ export const deleteTaskFailure = () => ({
 });
 
 // Actions for user assigned tasks filter
-export const fetchUserAssignedTasksRequest = user => ({
-  type: actions.USER_TASK_FILTER_REQUEST,
+export const fetchUserAssignedTasks = user => ({
+  type: actions.USER_ASSIGNED_TASKS_FILTER,
   payload: user,
-});
-
-export const fetchUserAssignedTasksSuccess = user => ({
-  type: actions.USER_TASK_FILTER_SUCCESS,
-  payload: user,
-});
-
-export const fetchUserAssignedTasksFailure = () => ({
-  type: actions.USER_TASK_FILTER_FAILURE,
 });
 
 // Actions for show all tasks filter
-export const showAllTaskFilterRequest = () => ({
-  type: actions.SHOW_ALL_TASKS_FILTER_REQUEST,
-});
-
-export const showAllTaskFilterSuccess = () => ({
-  type: actions.SHOW_ALL_TASKS_FILTER_SUCCESS,
-});
-
-export const showAllTaskFilterFailure = () => ({
-  type: actions.SHOW_ALL_TASKS_FILTER_FAILURE,
+export const showAllTaskFilterAction = () => ({
+  type: actions.SHOW_ALL_TASKS_FILTER,
 });
 
 // Actions for fetching search results
-export const fetchSearchResultsRequest = searchInput => ({
-  type: actions.FETCH_SEARCH_RESULTS_REQUEST,
+export const fetchSearchResultsAction = searchInput => ({
+  type: actions.FETCH_SEARCH_RESULTS,
   payload: searchInput,
-});
-
-export const fetchSearchResultsSuccess = searchInput => ({
-  type: actions.FETCH_SEARCH_RESULTS_SUCCESS,
-  payload: searchInput,
-});
-
-export const fetchSearchResultsFailure = () => ({
-  type: actions.FETCH_SEARCH_RESULTS_FAILURE,
 });
 
 // Actions for drag and drop tasks
-export const taskDragAndDropRequest = data => ({
-  type: actions.TASK_DRAG_AND_DROP_REQUEST,
+export const taskDragAndDropAction = data => ({
+  type: actions.TASK_DRAG_AND_DROP,
   payload: data,
 });

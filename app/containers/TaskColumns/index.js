@@ -26,7 +26,7 @@ import reducer from './reducer';
 import saga from './saga';
 import taskSections from './mocksData/taskColumnsData';
 import TaskBoard from '../TaskBoard/index';
-import { taskDragAndDropRequest, fetchTasksRequest } from './actions';
+import { taskDragAndDropAction, fetchTasksRequest } from './actions';
 
 export function TaskColumns(props) {
   useInjectReducer({ key: 'taskColumns', reducer });
@@ -188,7 +188,7 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     fetchTasks: () => dispatch(fetchTasksRequest()),
-    taskDragAndDrop: taskList => dispatch(taskDragAndDropRequest(taskList)),
+    taskDragAndDrop: taskList => dispatch(taskDragAndDropAction(taskList)),
   };
 }
 

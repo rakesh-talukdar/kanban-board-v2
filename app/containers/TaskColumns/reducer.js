@@ -3,22 +3,6 @@
  * TaskColumns reducer
  *
  */
-// import produce from 'immer';
-// import { DEFAULT_ACTION } from './constants';
-
-// export const initialState = {};
-
-// /* eslint-disable default-case, no-param-reassign */
-// const taskColumnsReducer = (state = initialState, action) =>
-//   produce(state, (/* draft */) => {
-//     switch (action.type) {
-//       case DEFAULT_ACTION:
-//         break;
-//     }
-//   });
-
-// export default taskColumnsReducer;
-
 import * as actions from './constants';
 
 export const initialState = {
@@ -45,7 +29,6 @@ const taskReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        // error: false,
       };
 
     case actions.FETCH_ALL_TASKS_SUCCESS:
@@ -180,16 +163,7 @@ const taskReducer = (state = initialState, action) => {
       };
 
     // Handling actions for user assigned tasks filter
-    case actions.USER_TASK_FILTER_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        userAssignedTasksFilterRequest: false,
-        hasSearchResultFetched: false,
-        error: false,
-      };
-
-    case actions.USER_TASK_FILTER_SUCCESS: {
+    case actions.USER_ASSIGNED_TASKS_FILTER: {
       const user = action.payload;
       const userAssignedTasks = state.tasks.filter(task => task.user === user);
       return {
@@ -202,50 +176,18 @@ const taskReducer = (state = initialState, action) => {
       };
     }
 
-    case actions.USER_TASK_FILTER_FAILURE:
-      return {
-        ...state,
-        hasTaskDeleted: false,
-        error: true,
-        isLoading: false,
-        errorMsg,
-      };
-
     // Handling actions for show all tasks filter
-    case actions.SHOW_ALL_TASKS_FILTER_REQUEST:
-      return {
-        ...state,
-        isLoading: true,
-        error: false,
-      };
-
-    case actions.SHOW_ALL_TASKS_FILTER_SUCCESS:
-      return {
-        ...state,
-        isLoading: true,
-        userAssignedTasksFilterRequest: false,
-        hasSearchResultFetched: false,
-        error: false,
-      };
-
-    case actions.SHOW_ALL_TASKS_FILTER_FAILURE:
+    case actions.SHOW_ALL_TASKS_FILTER:
       return {
         ...state,
         isLoading: false,
-        error: true,
         userAssignedTasksFilterRequest: false,
-        hasSearchResultFetched: false,
-        errorMsg,
-      };
-
-    case actions.FETCH_SEARCH_RESULTS_REQUEST:
-      return {
-        ...state,
         hasSearchResultFetched: false,
         error: false,
       };
 
-    case actions.FETCH_SEARCH_RESULTS_SUCCESS: {
+    // Handling actions for search tasks
+    case actions.FETCH_SEARCH_RESULTS: {
       const searchInput = action.payload;
       const matchedTasks = state.tasks.filter(taskObj => {
         let taskString = '';
@@ -266,16 +208,12 @@ const taskReducer = (state = initialState, action) => {
       };
     }
 
-    case actions.FETCH_SEARCH_RESULTS_FAILURE:
+    // Handling actions for drag and drop
+    case actions.TASK_DRAG_AND_DROP:
       return {
         ...state,
-        error: true,
-        hasSearchResultFetched: false,
-        errorMsg,
+        tasks: action.payload,
       };
-
-    case actions.TASK_DRAG_AND_DROP_REQUEST:
-      return state;
 
     default:
       return state;

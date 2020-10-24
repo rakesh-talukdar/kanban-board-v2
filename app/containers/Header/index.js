@@ -19,9 +19,9 @@ import saga from './saga';
 
 import users from '../TaskColumns/mocksData/users';
 import {
-  fetchUserAssignedTasksRequest,
-  showAllTaskFilterRequest,
-  fetchSearchResultsRequest,
+  fetchUserAssignedTasks,
+  showAllTaskFilterAction,
+  fetchSearchResultsAction,
 } from '../TaskColumns/actions';
 
 import {
@@ -39,7 +39,7 @@ export function Header(props) {
     userAssignedTasks,
     fetchSearchResults,
     showAllTaskFilter,
-    fetchUserAssignedTasks,
+    getUserAssignedTasks,
     searchResults,
     hasSearchResultFetched,
   } = props;
@@ -83,7 +83,7 @@ export function Header(props) {
     const selectedUser = event.target.value;
     return selectedUser === 'showAllTasks'
       ? showAllTaskFilter()
-      : fetchUserAssignedTasks(selectedUser);
+      : getUserAssignedTasks(selectedUser);
   };
 
   const userList = users.map(user => (
@@ -131,7 +131,7 @@ export function Header(props) {
 Header.propTypes = {
   fetchSearchResults: PropTypes.func,
   showAllTaskFilter: PropTypes.func,
-  fetchUserAssignedTasks: PropTypes.func,
+  getUserAssignedTasks: PropTypes.func,
   userAssignedTasks: PropTypes.array,
   userAssignedTasksFilterRequest: PropTypes.bool,
   searchResults: PropTypes.array,
@@ -148,10 +148,9 @@ const mapStateToProps = createStructuredSelector({
 function mapDispatchToProps(dispatch) {
   return {
     fetchSearchResults: searchQuery =>
-      dispatch(fetchSearchResultsRequest(searchQuery)),
-    showAllTaskFilter: () => dispatch(showAllTaskFilterRequest()),
-    fetchUserAssignedTasks: user =>
-      dispatch(fetchUserAssignedTasksRequest(user)),
+      dispatch(fetchSearchResultsAction(searchQuery)),
+    showAllTaskFilter: () => dispatch(showAllTaskFilterAction()),
+    getUserAssignedTasks: user => dispatch(fetchUserAssignedTasks(user)),
   };
 }
 
