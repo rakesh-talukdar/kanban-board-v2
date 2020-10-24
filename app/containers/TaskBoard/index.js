@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { compose } from 'redux';
 import { Droppable, Draggable } from 'react-beautiful-dnd';
-import { Button } from 'antd';
+import { Button, Tooltip } from 'antd';
 import 'antd/dist/antd.css';
 
 import { useInjectReducer } from 'utils/injectReducer';
@@ -95,9 +95,11 @@ export function TaskBoard(props) {
                     >
                       <FontAwesomeIcon icon={faTrash} className="dropIcon" />
                     </button>
-                    <span className="task-card-username" title={username}>
-                      {userFirstName}
-                    </span>
+                    <Tooltip placement="right" title={username}>
+                      <span className="task-card-username">
+                        {userFirstName}
+                      </span>
+                    </Tooltip>
                   </p>
                 </li>
               )}
