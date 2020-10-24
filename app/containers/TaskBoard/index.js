@@ -170,15 +170,12 @@ export function TaskBoard(props) {
             </ul>
           )}
         </Droppable>
-        {/* <button
+
+        <Button
           onClick={toggleModal}
           className="add-task-card-btn"
-          type="button"
+          size="large"
         >
-          Add Task Card
-          <FontAwesomeIcon icon={faPlus} className="searchIcon" />
-        </button> */}
-        <Button onClick={toggleModal} className="add-task-card-btn">
           Add Task Card
           <FontAwesomeIcon icon={faPlus} className="searchIcon" />
         </Button>

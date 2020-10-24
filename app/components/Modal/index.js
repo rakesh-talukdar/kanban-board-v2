@@ -3,12 +3,10 @@
  * Modal
  *
  */
-
-// import PropTypes from 'prop-types';
-// import styled from 'styled-components';
-
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import 'antd/dist/antd.css';
+import { Select, Button } from 'antd';
 import users from '../../containers/TaskColumns/mocksData/users';
 
 const Modal = props => {
@@ -17,6 +15,9 @@ const Modal = props => {
   const [userName, setUserName] = useState(defaultUserValue);
   const [error, setError] = useState({ hasError: false, errorMsg: '' });
   let modalRef = null;
+
+  // Option element from Select ant D
+  const { Option } = Select;
 
   useEffect(() => {
     // To check and hide modal if the click is outside modal.
@@ -36,7 +37,7 @@ const Modal = props => {
   };
 
   const handleUserChange = event => {
-    setUserName(event.target.value);
+    setUserName(event);
   };
 
   const handleSubmit = event => {
@@ -59,22 +60,23 @@ const Modal = props => {
   };
 
   const userList = users.map(user => (
-    <option key={user.id} value={user.name}>
+    <Option key={user.id} value={user.name}>
       {user.name}
-    </option>
+    </Option>
   ));
 
   return (
     <section className="modal">
       <div className="modal-content" ref={node => assignedModalRef(node)}>
         <header>
-          <button
-            type="button"
+          <Button
+            htmlType="button"
             onClick={closeModal}
             className="modal-close-btn"
+            size="small"
           >
             X
-          </button>
+          </Button>
         </header>
 
         <div className="task-input-section">
@@ -94,21 +96,25 @@ const Modal = props => {
             />
 
             <label htmlFor="select-user-dropdown">Assign user</label>
-            <select
+            <Select
               className="select-input"
-              onChange={handleUserChange}
-              value={userName || 'Select user'}
               id="select-user-dropdown"
+              showSearch
+              placeholder="Select user"
+              value={userName || 'Select user'}
+              optionFilterProp="children"
+              onChange={handleUserChange}
             >
-              <option disabled defaultValue={userName || 'Select user'}>
-                Select user
-              </option>
               {userList}
-            </select>
-
-            <button type="submit" className="task-submit-btn">
+            </Select>
+            <Button
+              type="primary"
+              htmlType="submit"
+              className="task-submit-btn"
+              size="large"
+            >
               {buttonName}
-            </button>
+            </Button>
           </form>
         </div>
       </div>

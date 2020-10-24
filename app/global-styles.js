@@ -139,6 +139,7 @@ const GlobalStyle = createGlobalStyle`
   .task-list-header h3 {
     color: rgb(75, 70, 70);
     font-size: 1.4em; 
+    padding-top: 0.5em;
     text-transform: capitalize;
   }
   
@@ -226,7 +227,6 @@ const GlobalStyle = createGlobalStyle`
     border-radius: 10px;
     transform: scale(1.1);
   }
-   
   .dropIcon {
     pointer-events:none;
   }
