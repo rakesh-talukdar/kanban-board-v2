@@ -11,6 +11,7 @@ import React from 'react';
 import Header from '../Header/index';
 import TaskColumns from '../TaskColumns/index';
 import GlobalStyle from '../../global-styles';
+import './index.scss';
 export default function App() {
   return (
     <div>
