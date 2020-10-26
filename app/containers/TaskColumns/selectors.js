@@ -10,6 +10,19 @@ const selectGlobal = state => state.tasks || initialState;
 /**
  * Other specific selectors
  */
+const selectAllTasks = state => state.tasks.tasks;
+const selectSingleTask = state => state.tasks.task;
+const selectHasTaskAdded = state => state.tasks.hasTaskAdded;
+const selectHasTaskUpdated = state => state.tasks.hasTaskUpdated;
+const selectHasTaskDeleted = state => state.tasks.hasTaskDeleted;
+const selectUserAssignedTasks = state => state.tasks.userAssignedTasks;
+const selectUserAssignedTasksFilterRequest = state =>
+  state.tasks.userAssignedTasksFilterRequest;
+const selectSearchResults = state => state.tasks.searchResults;
+const selectHasSearchResultFetched = state =>
+  state.tasks.hasSearchResultFetched;
+const selectError = state => state.tasks.error;
+const selectErrorMsg = state => state.tasks.errorMsg;
 
 /**
  * Default selector used by TaskColumns
@@ -17,62 +30,63 @@ const selectGlobal = state => state.tasks || initialState;
 
 const makeSelectTasks = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.tasks,
+    selectAllTasks,
+    substate => substate,
   );
+
 const makeSelectTask = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.task,
+    selectSingleTask,
+    substate => substate,
   );
 
 const makeSelectHasTaskAdded = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.hasTaskAdded,
+    selectHasTaskAdded,
+    substate => substate,
   );
 const makeSelectHasTaskDeleted = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.hasTaskDeleted,
+    selectHasTaskDeleted,
+    substate => substate,
   );
 const makeSelectHasTaskUpdated = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.hasTaskUpdated,
+    selectHasTaskUpdated,
+    substate => substate,
   );
 
 const makeSelectUserAssignedTasks = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.userAssignedTasks,
+    selectUserAssignedTasks,
+    substate => substate,
   );
 const makeSelectuserAssignedTasksFilterRequest = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.userAssignedTasksFilterRequest,
+    selectUserAssignedTasksFilterRequest,
+    substate => substate,
   );
 
 const makeSelectSearchResults = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.searchResults,
+    selectSearchResults,
+    substate => substate,
   );
 const makeSelectHasSearchResultFetched = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.hasSearchResultFetched,
+    selectHasSearchResultFetched,
+    substate => substate,
   );
 
 const makeSelectError = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.error,
+    selectError,
+    substate => substate,
   );
 const makeSelectErrorMsg = () =>
   createSelector(
-    selectGlobal,
-    substate => substate.errorMsg,
+    selectErrorMsg,
+    substate => substate,
   );
 
 export {
