@@ -1,4 +1,6 @@
-## To Start The JSON Server for Backend
+## To Start The JSON Server For Backend
+1. Run the npm command: `npm run start-json-server`
+                        Or
 1.  Go to the mocksData directory in the root folder `cd mocksData`.
 2.  Then run the command `npx json-server --watch db.json --port 3004`.
 
