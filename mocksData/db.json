@@ -38,7 +38,7 @@
     },
     {
       "task": "Presenting demo",
-      "user": "Ronny Doe",
+      "user": "John Doe",
       "status": "doing",
       "id": "LPJNqHk"
     },
@@ -56,7 +56,7 @@
     },
     {
       "task": "Doing a category search",
-      "user": "Ronny Doe",
+      "user": "Jane Doe",
       "status": "doing",
       "id": "n7g55Jc"
     },
@@ -73,10 +73,10 @@
       "id": "xgpIZqu"
     },
     {
-      "task": "test",
-      "user": "John Doe",
+      "task": "new task blob type",
+      "user": "Jane Doe",
       "status": "todo",
-      "id": "3u-VWkp"
+      "id": "NPxcr8r"
     }
   ]
 }

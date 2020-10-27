@@ -1,3 +1,8 @@
+## To Start The JSON Server for Backend
+1.  Go to the mocksData directory in the root folder `cd mocksData`.
+2.  Then run the command `npx json-server --watch db.json --port 3004`.
+
+
 <img src="https://raw.githubusercontent.com/react-boilerplate/react-boilerplate-brand/master/assets/banner-metal-optimized.jpg" alt="react boilerplate banner" align="center" />
 
 <br />

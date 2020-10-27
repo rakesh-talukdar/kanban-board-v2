@@ -7,7 +7,7 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 import { Select, Button } from 'antd';
-import users from '../../containers/TaskColumns/mocksData/users';
+import users from '../../../mocksData/users';
 
 const Modal = props => {
   const { closeModal, onSubmit, buttonName, defaultUserValue, task } = props;

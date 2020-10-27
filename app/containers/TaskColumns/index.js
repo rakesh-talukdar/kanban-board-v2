@@ -24,7 +24,7 @@ import {
 } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
-import taskSections from './mocksData/taskColumnsData';
+import taskSections from '../../../mocksData/taskColumnsData';
 import TaskBoard from '../TaskBoard/index';
 import { taskDragAndDropAction, fetchTasksRequest } from './actions';
 
