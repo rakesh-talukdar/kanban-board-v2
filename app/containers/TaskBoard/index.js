@@ -58,7 +58,7 @@ export function TaskBoard(props) {
     fetchTask,
   } = props;
 
-  const { task, user } = taskData;
+  const { task, user, description } = taskData;
 
   const getDroppableTaskCards = taskCardList => {
     const taskLists =
@@ -109,12 +109,13 @@ export function TaskBoard(props) {
     return taskLists;
   };
 
-  const handleSubmit = (taskName, userName) => {
+  const handleSubmit = (taskName, userName, taskDescription) => {
     const status = taskSection.title.toLowerCase();
     const data = {
       task: taskName.trim(),
       user: userName.trim(),
       status,
+      description: taskDescription,
     };
     if (taskId === undefined) {
       return addTask(data);
@@ -187,6 +188,7 @@ export function TaskBoard(props) {
         <Modal
           task={taskId === undefined ? '' : task}
           defaultUserValue={taskId === undefined ? '' : user}
+          description={taskId === undefined ? '' : description}
           closeModal={toggleModal}
           buttonName={buttonName}
           onSubmit={handleSubmit}

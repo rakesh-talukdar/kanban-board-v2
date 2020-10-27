@@ -15,9 +15,6 @@ $bondi-blue: #0E92BB;
 $free-speech-red: #CA0404;
 $black-with-opacity: rgba(0,0,0,0.4);
 
-$modal-btn-color: $medium-carmine;
-$modal-btn-hover-color:  $cinnabar;
-
 ul {
   list-style: none;
 }
@@ -63,6 +60,10 @@ input, button {
   padding: 0.6em;
   width: 90%;
   border-radius: 5px;
+  &:focus {
+    box-shadow: 0px 0px 3px 3px $turquoise-blue;
+    color: $black;
+  }
 }
   
 .filter-container {
@@ -78,15 +79,14 @@ input, button {
   border-radius: 5px;
   background-color: $white;
   cursor: pointer;
+  &:focus {
+    box-shadow: 0px 0px 3px 3px $turquoise-blue;
+    color: $black;
+  }
 }
 .filter-select option {
   cursor: pointer;
   font-size: 1.2em;
-}
-
-.filter-select:focus, .search-input:focus {
-  box-shadow: 0px 0px 3px 3px $turquoise-blue;
-  color: $black;
 }
 
 /* Style for task section */
@@ -224,7 +224,7 @@ input, button {
   margin-top: 6em;
   padding: 1.5em;
   width: 35%;
-  height: 65vh;
+  height: 85%;
   background-color: $white;
   border-radius: 10px;
 
@@ -272,30 +272,32 @@ input, button {
 
 label {
   padding: 0 0.6em;
-  margin-top: 0.5em;
+  margin: 0.8em 0;
 }
 
 .add-task-input, .select-input {
-  margin:  1em 0.5em;
+  margin: 0 0.5em 1em 0.5em;
   padding: 0.6em;
   background-color: $white;
   box-shadow: 0px 0px 3px 3px $very-light-grey;
   border-radius: 5px;
   outline: none;
   border: none;
+  text-transform: capitalize;
   cursor: pointer;
+  &:focus {
+    border-color: $dark-grey;
+    box-shadow: 0 0 3px 3px $medium-carmine;
+    color: $black;
+  }
 }
 
-.add-task-input:focus, .select-input:focus {
-    border-color: $dark-grey;
-    box-shadow: 0 0 3px 3px $modal-btn-color;
-  color: $black;
-}
+
 .task-submit-btn {
   margin:  2em 0.5em;
   padding: 0.7em 1em;
   font-size: 1em;
-  background-color: $modal-btn-color;
+  background-color: $medium-carmine;
   color: $white;
   align-self: center;
   border-radius: 5px;
@@ -303,7 +305,7 @@ label {
   border: none;
   cursor: pointer;
   &:hover{
-    background-color: $modal-btn-hover-color;
+    background-color:  $cinnabar;
   }
 }
 

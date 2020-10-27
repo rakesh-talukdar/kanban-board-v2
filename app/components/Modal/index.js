@@ -7,11 +7,24 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import 'antd/dist/antd.css';
 import { Select, Button } from 'antd';
+import CKEditor from '@ckeditor/ckeditor5-react';
+import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import users from '../../../mocksData/users';
 
 const Modal = props => {
-  const { closeModal, onSubmit, buttonName, defaultUserValue, task } = props;
+  const {
+    closeModal,
+    onSubmit,
+    buttonName,
+    defaultUserValue,
+    task,
+    description,
+  } = props;
+
   const [newTask, setNewTask] = useState(task || '');
+  // Testing start
+  const [newDescription, setNewDescription] = useState(description || '');
+  // Testing end
   const [userName, setUserName] = useState(defaultUserValue);
   const [error, setError] = useState({ hasError: false, errorMsg: '' });
   let modalRef = null;
@@ -40,11 +53,17 @@ const Modal = props => {
     setUserName(event);
   };
 
+  const handleDescriptionChange = (event, editor) => {
+    const data = editor.getData();
+    setNewDescription(data);
+  };
+
   const handleSubmit = event => {
     event.preventDefault();
     if (newTask.length > 2 && userName) {
-      onSubmit(newTask, userName);
+      onSubmit(newTask, userName, newDescription);
       setNewTask('');
+      setNewDescription('');
       setUserName('');
       setError({ hasError: false, errorMsg: '' });
     } else {
@@ -85,7 +104,7 @@ const Modal = props => {
           </p>
           <form className="add-task-form" onSubmit={handleSubmit}>
             <label htmlFor="task-input">Add task</label>
-            <textarea
+            <input
               type="text"
               className="add-task-input"
               name="task"
@@ -94,6 +113,17 @@ const Modal = props => {
               value={newTask}
               id="task-input"
             />
+
+            {/* Testing start */}
+            <label htmlFor="task-description">Description</label>
+            <CKEditor
+              id="task-description"
+              className="task-description-input"
+              editor={ClassicEditor}
+              data={description}
+              onChange={handleDescriptionChange}
+            />
+            {/* Testing end */}
 
             <label htmlFor="select-user-dropdown">Assign user</label>
             <Select
@@ -132,6 +162,7 @@ Modal.propTypes = {
   task: PropTypes.string,
   buttonName: PropTypes.string,
   defaultUserValue: PropTypes.string,
+  description: PropTypes.any,
 };
 
 export default Modal;

@@ -4,79 +4,43 @@
       "task": "dummy",
       "status": "dummy",
       "id": "dummy",
-      "user": "dummy"
+      "user": "dummy",
+      "description": "dummy"
     },
     {
-      "task": "Walk more daily",
+      "task": "New task",
       "user": "Jane Doe",
       "status": "todo",
-      "id": "o1NhOF7"
+      "description": "<h2>Hello description</h2>",
+      "id": "FKZLeQ0"
     },
     {
-      "task": "Learning more about hooks.",
-      "user": "Kane Doe",
+      "task": "innsallation doing",
+      "user": "Ronny Doe",
       "status": "doing",
-      "id": "XXx6vTj"
+      "description": "<p>Testing description</p>",
+      "id": "omcqior"
     },
     {
-      "task": "Resolved Bugs",
-      "user": "John Doe",
-      "status": "doing",
-      "id": "nSrIysB"
-    },
-    {
-      "task": "code category",
-      "user": "Kane Doe",
+      "task": "Task resolved",
+      "user": "Ronny Doe",
       "status": "completed",
-      "id": "XC4iOpo"
+      "description": "<p><strong>Hi Task.</strong></p><ol><li><i>new task</i></li><li><i>two</i></li></ol>",
+      "id": "Bd9qNsi"
     },
     {
-      "task": "Code",
+      "task": "New  task added",
+      "user": "Ronny Doe",
+      "status": "doing",
+      "description": "<ol><li><strong>Task one</strong></li><li><strong>Task Two</strong></li></ol><p><strong>Task has been added.</strong></p>",
+      "id": "Y5z9_fh"
+    },
+    {
+      "task": "Testing code",
       "user": "Jane Doe",
       "status": "todo",
-      "id": "QOUtB3u"
-    },
-    {
-      "task": "Presenting demo",
-      "user": "John Doe",
-      "status": "doing",
-      "id": "LPJNqHk"
-    },
-    {
-      "task": "new task added",
-      "user": "Jane Doe",
-      "status": "todo",
-      "id": "RMvHQzO"
-    },
-    {
-      "task": "new Task",
-      "user": "Kane Doe",
-      "status": "doing",
-      "id": "aGCGOGb"
-    },
-    {
-      "task": "Doing a category search",
-      "user": "Jane Doe",
-      "status": "doing",
-      "id": "n7g55Jc"
-    },
-    {
-      "task": "Added a new task",
-      "user": "Jane Doe",
-      "status": "completed",
-      "id": "pnH8JAl"
-    },
-    {
-      "task": "Testing again new",
-      "user": "John Doe",
-      "status": "completed",
-      "id": "xgpIZqu"
-    },
-    {
-      "task": "new task blob type",
-      "user": "Jane Doe",
-      "status": "todo",
-      "id": "NPxcr8r"
+      "description": "<h4><i><strong>Dummy desc</strong></i></h4>",
+      "id": "IPnPc13"
     }
   ]
 }
