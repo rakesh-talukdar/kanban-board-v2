@@ -16,7 +16,7 @@ import { useInjectSaga } from 'utils/injectSaga';
 import { toast, ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import saga from './saga';
-import users from '../TaskColumns/mocksData/users';
+import users from '../../../mocksData/users';
 import {
   fetchUserAssignedTasks,
   showAllTaskFilterAction,
