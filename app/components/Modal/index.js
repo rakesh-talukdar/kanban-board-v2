@@ -22,9 +22,7 @@ const Modal = props => {
   } = props;
 
   const [newTask, setNewTask] = useState(task || '');
-  // Testing start
   const [newDescription, setNewDescription] = useState(description || '');
-  // Testing end
   const [userName, setUserName] = useState(defaultUserValue);
   const [error, setError] = useState({ hasError: false, errorMsg: '' });
   let modalRef = null;
@@ -55,7 +53,9 @@ const Modal = props => {
 
   const handleDescriptionChange = (event, editor) => {
     const data = editor.getData();
-    setNewDescription(data);
+    const pattern = /<p>&nbsp;<\/p>/gi;
+    const result = data.replace(pattern, '');
+    setNewDescription(result);
   };
 
   const handleSubmit = event => {
