@@ -85,7 +85,7 @@
     "ip": "1.1.5",
     "json-server": "^0.16.2",
     "lodash": "4.17.11",
-    "minimist": "1.2.0",
+    "minimist": "1.2.6",
     "prop-types": "15.7.2",
     "react": "16.8.6",
     "react-beautiful-dnd": "^13.0.0",
